@@ -4,6 +4,21 @@ from pathlib import Path
 def parse_movement(input):
     horizontal = 0
     depth = 0
+
+    for move in input:
+        if move.startswith("forward"):
+            horizontal += int(move.split(" ")[1])
+        elif move.startswith("down"):
+            depth += int(move.split(" ")[1])
+        else:  # "up"
+            depth -= int(move.split(" ")[1])
+
+    return horizontal * depth
+
+
+def parse_movement_aim(input):
+    horizontal = 0
+    depth = 0
     aim = 0
 
     for move in input:
@@ -22,4 +37,4 @@ def parse_movement(input):
 if __name__ == "__main__":
     course = Path("day_02_input.txt").read_text().splitlines()
 
-    print(f"Submarine traveled  {parse_movement(course):,} on course.")
+    print(f"Submarine traveled  {parse_movement_aim(course):,} on course.")
