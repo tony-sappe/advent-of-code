@@ -55,7 +55,7 @@ def parse_additional_diagnostics(input: Iterable[str]) -> int:
         else:
             co2_bin.append("0")
 
-    print(f"O2: {o2_bin} | CO2: {co2_bin}")
+    print(f"O2: {''.join(o2_bin)} | CO2: {''.join(co2_bin)}")
     o2 = int("".join(o2_bin), 2)
     co2 = int("".join(co2_bin), 2)
     print(f"Oxygen Generator Rating: {o2:,} | Carbon Dioxide Rating: {co2:,}")
@@ -63,7 +63,7 @@ def parse_additional_diagnostics(input: Iterable[str]) -> int:
 
 
 if __name__ == "__main__":
-    report = (Path.cwd() / "2021" / "data" / "day_03_input.txt").read_text().splitlines()
+    report = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text().splitlines()
 
     print(f"Diagnostic Report {parse_diagnostics(report):,}")
     print(f"Advanced Diagnostic Report {parse_additional_diagnostics(report):,}")

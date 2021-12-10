@@ -45,5 +45,5 @@ if __name__ == "__main__":
     #     260,
     #     263,
     # ]
-    sonar_sweep = list(map(int, (Path.cwd() / "2021" / "data" / "day_01_input.txt").read_text().splitlines()))
+    sonar_sweep = list(map(int, (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text().splitlines()))
     print(f"Sonar report contained {sonar_scan(sonar_sweep):,} increases.")

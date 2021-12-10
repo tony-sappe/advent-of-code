@@ -64,15 +64,15 @@ def parse_input(input: str) -> tuple:
 
 
 if __name__ == "__main__":
-    bingo_game_input = (Path.cwd() / "2021" / "data" / "day_04_input.txt").read_text()
+    bingo_game_input = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
     draws, boards = parse_input(bingo_game_input)
 
     winner, draw_count = simulate_game(boards, draws)
-    print(f"Best Board is #{winner+1} after draw {draw_count:,}")
+    print(f"Best Board is #{winner+1}, wins on draw {draw_count:,}")
     score = calculate_score(boards[winner], draws[:draw_count])
     print(f"Final Score: {score}")
 
     winner, draw_count = simulate_game(boards, draws, "lose")
-    print(f"Worst Board is #{winner+1} after draw {draw_count:,}")
+    print(f"Worst Board is #{winner+1}, wins on draw {draw_count:,}")
     score = calculate_score(boards[winner], draws[:draw_count])
     print(f"Final Score: {score}")
