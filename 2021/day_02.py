@@ -1,0 +1,40 @@
+from pathlib import Path
+
+
+def parse_movement(input):
+    horizontal = 0
+    depth = 0
+
+    for move in input:
+        if move.startswith("forward"):
+            horizontal += int(move.split(" ")[1])
+        elif move.startswith("down"):
+            depth += int(move.split(" ")[1])
+        else:  # "up"
+            depth -= int(move.split(" ")[1])
+
+    return horizontal * depth
+
+
+def parse_movement_aim(input):
+    horizontal = 0
+    depth = 0
+    aim = 0
+
+    for move in input:
+        if move.startswith("forward"):
+            x_units = int(move.split(" ")[1])
+            horizontal += x_units
+            depth += aim * x_units
+        elif move.startswith("down"):
+            aim += int(move.split(" ")[1])
+        else:  # "up"
+            aim -= int(move.split(" ")[1])
+
+    return horizontal * depth
+
+
+if __name__ == "__main__":
+    course = (Path.cwd() / "2021" / "data" / "day_02_input.txt").read_text().splitlines()
+
+    print(f"Submarine traveled  {parse_movement_aim(course):,} on course.")
