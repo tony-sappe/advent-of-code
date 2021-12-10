@@ -54,7 +54,6 @@ def trim_diagnostics(input, match):
     return [line for line in input if line.startswith(match)]
 
 
-
 if __name__ == "__main__":
     # Sample Input
     report = [
@@ -71,7 +70,7 @@ if __name__ == "__main__":
         "00010",
         "01010",
     ]
-    # report = Path("day_03_input.txt").read_text().splitlines()
+    # report = (Path.cwd() / "2021" / "data" / "day_03_input.txt").read_text().splitlines()
 
     print(f"Diagnostic Report {parse_diagnostics(report):,}")
     print(f"Advanced Diagnostic Report {parse_additional_diagnostics(report):,}")

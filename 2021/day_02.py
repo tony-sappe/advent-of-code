@@ -35,6 +35,6 @@ def parse_movement_aim(input):
 
 
 if __name__ == "__main__":
-    course = Path("day_02_input.txt").read_text().splitlines()
+    course = (Path.cwd() / "2021" / "data" / "day_02_input.txt").read_text().splitlines()
 
     print(f"Submarine traveled  {parse_movement_aim(course):,} on course.")
