@@ -20,7 +20,5 @@
 # License
 All code in this project is under the [MIT License](LICENSE)
 
-This project holds no Rights and Ownership of Advent of Code nor the puzzles. This project is solely a collection of puzzle solutions. All puzzles were crafted and are owned by the extraordinary [Eric Wastl](http://was.tl/).
+This project holds no Rights nor Ownership of Advent of Code puzzles. This project is solely a collection of puzzle solutions. All puzzles were crafted and are owned by the extraordinary [Eric Wastl](http://was.tl/).
 Anything copied from Advent of Code (other than the sample input) will be marked as such and attributed to Eric Wastl.
-
-_If you don't like code you see here, please don't yell at Eric. I'm the one you're after._
