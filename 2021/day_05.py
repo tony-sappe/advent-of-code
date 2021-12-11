@@ -22,7 +22,6 @@ def parse_input(input: str) -> tuple:
         start, end = line.split(" -> ")
         parsed_lines.append((tuple(map(int, start.split(","))), tuple(map(int, end.split(",")))))
 
-    print(parsed_lines)
     return parsed_lines
 
 
@@ -62,7 +61,7 @@ def find_hotspots(points):
 
 if __name__ == "__main__":
     lines_input = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
-    lines = parse_input(Sample_Input)
+    lines = parse_input(lines_input)
 
     line_subset = scrub_diagonal_lines(lines)
     points = create_points(line_subset)

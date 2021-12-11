@@ -6,9 +6,9 @@
 >
 > \>\>\> Eric Wastl - [About Page](https://adventofcode.com/2021/about)
 
-
+## Puzzles through the years
 * 2021 \[[code](2021)\] \[[site](https://adventofcode.com/2021)\]
-    * Days 1-4
+    * Days 1-7
 * 2020 \[[site](https://adventofcode.com/2020)\]
 * 2019 \[[site](https://adventofcode.com/2019)\]
 * 2018 \[[site](https://adventofcode.com/2018)\]
