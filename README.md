@@ -8,7 +8,7 @@
 
 ## Puzzles through the years
 * 2021 \[[code](2021)\] \[[site](https://adventofcode.com/2021)\]
-    * Days 1-7
+    * Days 1-8, 9a, 10
 * 2020 \[[site](https://adventofcode.com/2020)\]
 * 2019 \[[site](https://adventofcode.com/2019)\]
 * 2018 \[[site](https://adventofcode.com/2018)\]
@@ -17,8 +17,8 @@
 * 2015 \[[site](https://adventofcode.com/2015)\]
 
 
-# License
+# Legal
 All code in this project is under the [MIT License](LICENSE)
 
 This project holds no Rights nor Ownership of Advent of Code puzzles. This project is solely a collection of puzzle solutions. All puzzles were crafted and are owned by the extraordinary [Eric Wastl](http://was.tl/).
-Anything copied from Advent of Code (other than the sample input) will be marked as such and attributed to Eric Wastl.
+Anything copied from Advent of Code (other than the input data) will be marked as such and attributed to Eric Wastl.

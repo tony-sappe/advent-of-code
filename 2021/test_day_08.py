@@ -1,0 +1,16 @@
+from day_08 import Sample_Input, parse_input, guess_number, count_easy_numbers
+
+
+def test_input_parser():
+    displays, outputs = parse_input(Sample_Input)
+    assert outputs[0] == ["fdgacbe", "cefdb", "cefbgd", "gcbe"]
+
+
+def test_provided_step_1():
+    """Ensure the sample puzzle input matches the provided answer for step 1"""
+    displays, outputs = parse_input(Sample_Input)
+    assert count_easy_numbers(outputs) == 26
+
+
+def test_provided_step_2():
+    """Ensure the sample puzzle input matches the provided answer for step 2"""
