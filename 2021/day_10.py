@@ -42,7 +42,7 @@ def complete_incomplete(lines: Iterable[str]) -> int:
     return scores[len(scores) // 2]
 
 
-def parse_lines(lines: Iterable[str]) -> Tuple(List[int], List[int], List[int]):
+def parse_lines(lines: Iterable[str]) -> Tuple[List[int], List[int], List[int]]:
 
     errors = []
     incomplete = []
