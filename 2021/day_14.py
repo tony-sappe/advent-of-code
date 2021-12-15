@@ -1,6 +1,6 @@
 from collections import Counter
 from datetime import datetime
-from itertools import tee
+from more_itertools import pairwise
 from pathlib import Path
 from typing import Iterable, Dict
 
@@ -23,13 +23,6 @@ BC -> B
 CC -> N
 CN -> C
 """
-
-
-def pairwise(iterable):
-    # pairwise('ABCDEFG') --> AB BC CD DE EF FG
-    a, b = tee(iterable)
-    next(b, None)
-    return zip(a, b)
 
 
 def parse_input(input: str) -> Iterable[str]:

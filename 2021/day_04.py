@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Iterable, List
+from typing import Iterable, List, Tuple
 
 Sample_Input = """7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
 
@@ -30,7 +30,7 @@ def board_to_grids(board: Iterable[Iterable[int]]) -> List[List[int]]:
     return result
 
 
-def draws_to_win(board, draws):
+def draws_to_win(board: Iterable[Iterable[int]], draws: Iterable[int]) -> int:
     for turn in range(5, len(draws), 1):
         for grid in board:
             if set(draws[:turn]) >= set(grid):
@@ -38,7 +38,7 @@ def draws_to_win(board, draws):
     return 1_000_000_000_000
 
 
-def simulate_game(boards, draws, strategy="win"):
+def simulate_game(board: Iterable[Iterable[int]], draws: Iterable[int], strategy: str = "win") -> int:
     """ """
     if strategy == "win":
         op = min
@@ -48,12 +48,12 @@ def simulate_game(boards, draws, strategy="win"):
     return op(win_state, key=lambda t: t[1])
 
 
-def calculate_score(board, draws):
+def calculate_score(board: Iterable[Iterable[int]], draws: Iterable[int]) -> int:
     unmarked_spaces = set([x for grid in board for x in grid if x not in draws])
     return sum(unmarked_spaces) * draws[-1]
 
 
-def parse_input(input: str) -> tuple:
+def parse_input(input: str) -> Tuple[List[int], List[List[int]]]:
     sections = input.strip().split("\n\n")
     drawn_numbers = list(map(int, sections[0].split(",")))
 

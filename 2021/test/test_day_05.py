@@ -16,6 +16,7 @@ def test_diagonal_removal():
 
 
 def test_provided_step_1():
+    """Ensure the sample puzzle input matches the provided answer for step 1"""
     lines = parse_input(Sample_Input)
     line_subset = scrub_diagonal_lines(lines)
     points = create_points(line_subset)
@@ -24,6 +25,7 @@ def test_provided_step_1():
 
 
 def test_provided_step_2():
+    """Ensure the sample puzzle input matches the provided answer for step 2"""
     lines = parse_input(Sample_Input)
     points = create_points(lines)
     hotspots, hot_temperature = find_hotspots(points)

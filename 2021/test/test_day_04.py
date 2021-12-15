@@ -16,6 +16,7 @@ def test_input_parser():
 
 
 def test_provided_step_1():
+    """Ensure the sample puzzle input matches the provided answer for step 1"""
     draws, boards = parse_input(Sample_Input)
     winner, draw_count = simulate_game(boards, draws, "win")
     score = calculate_score(boards[winner], draws[:draw_count])
@@ -23,6 +24,7 @@ def test_provided_step_1():
 
 
 def test_provided_step_2():
+    """Ensure the sample puzzle input matches the provided answer for step 2"""
     draws, boards = parse_input(Sample_Input)
     winner, draw_count = simulate_game(boards, draws, "lose")
     score = calculate_score(boards[winner], draws[:draw_count])

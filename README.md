@@ -8,7 +8,7 @@
 
 ## Puzzles through the years
 * 2021 \[[code](2021)\] \[[site](https://adventofcode.com/2021)\]
-    * Days 1-8, 9a, 10-13
+    * Days 1-8, 9a, 10-14a
 * 2020 \[[site](https://adventofcode.com/2020)\]
 * 2019 \[[site](https://adventofcode.com/2019)\]
 * 2018 \[[site](https://adventofcode.com/2018)\]
