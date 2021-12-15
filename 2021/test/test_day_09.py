@@ -22,5 +22,5 @@ def test_provided_step_1():
 def test_provided_step_2():
     """Ensure the sample puzzle input matches the provided answer for step 2"""
     grid = parse_input(Sample_Input)
-    # basins = find_basins(grid)
-    # assert largest_basins_volume(basins) == 1134
+    basins = find_basins(grid)
+    assert largest_basins_volume(basins) == 1134

@@ -38,7 +38,7 @@ def draws_to_win(board: Iterable[Iterable[int]], draws: Iterable[int]) -> int:
     return 1_000_000_000_000
 
 
-def simulate_game(board: Iterable[Iterable[int]], draws: Iterable[int], strategy: str = "win") -> int:
+def simulate_game(boards: Iterable[Iterable[Iterable[int]]], draws: Iterable[int], strategy: str = "win") -> int:
     """ """
     if strategy == "win":
         op = min
@@ -68,11 +68,9 @@ if __name__ == "__main__":
     draws, boards = parse_input(bingo_game_input)
 
     winner, draw_count = simulate_game(boards, draws)
-    print(f"Best Board is #{winner+1}, wins on draw {draw_count:,}")
     score = calculate_score(boards[winner], draws[:draw_count])
-    print(f"Final Score: {score}")
+    print(f"Step 1: Best Board is #{winner+1} | Bingo on draw {draw_count:,} | Score: {score:,}")
 
     winner, draw_count = simulate_game(boards, draws, "lose")
-    print(f"Worst Board is #{winner+1}, wins on draw {draw_count:,}")
     score = calculate_score(boards[winner], draws[:draw_count])
-    print(f"Final Score: {score}")
+    print(f"Step 2: Worst Board is #{winner+1} | Bingo on draw {draw_count:,} | Score: {score:,}")
