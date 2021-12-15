@@ -1,4 +1,4 @@
-from day_08 import Sample_Input, parse_input, guess_number, count_easy_numbers
+from day_08 import Sample_Input, parse_input, deduce_crossed_wires, count_easy_numbers
 
 
 def test_input_parser():
@@ -14,3 +14,5 @@ def test_provided_step_1():
 
 def test_provided_step_2():
     """Ensure the sample puzzle input matches the provided answer for step 2"""
+    numbers = deduce_crossed_wires(Sample_Input)
+    assert sum(numbers) == 61229
