@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Iterable, List, Dict
+from typing import Dict, Iterable, List
 
 Sample_Input_1 = """start-A
 start-b
@@ -58,7 +58,7 @@ def generate_valid_paths_2(lines: Iterable[str]) -> List[str]:
 
 
 def explore_cave(
-    network: Dict[str, List[str]], start: str, end: str, path: List[str], allow_twice: bool
+    network: Dict[str, List[str]], start: str, end: str, path: Iterable[str], allow_twice: bool
 ) -> List[List[str]]:
 
     path = path + [start]
@@ -100,7 +100,7 @@ def create_cave_network(lines: Iterable[str]) -> Dict[str, List[str]]:
 if __name__ == "__main__":
     input_data = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
     lines = parse_input(input_data)
-    cave_network = create_cave_network(lines)
+
     paths = generate_valid_paths(lines)
     print(f"{len(paths):,} Paths found in cavern system")
 
