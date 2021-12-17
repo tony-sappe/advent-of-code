@@ -2,6 +2,7 @@ from day_11 import Sample_Input, parse_input, simulate_flashes, find_simultaneou
 
 
 def test_input_parser():
+    """Test the input parser output behavior"""
     grid = parse_input(Sample_Input)
     assert grid == [
         [5, 4, 8, 3, 1, 4, 3, 2, 2, 3],

@@ -2,6 +2,7 @@ from day_06 import Sample_Input, parse_input, simulate
 
 
 def test_input_parser():
+    """Test the input parser output behavior"""
     lines = parse_input(Sample_Input)
     assert lines == [3, 4, 3, 1, 2]
 

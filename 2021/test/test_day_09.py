@@ -2,6 +2,7 @@ from day_09 import Sample_Input, parse_input, determine_risk, find_low_points, f
 
 
 def test_input_parser():
+    """Test the input parser output behavior"""
     grid = parse_input(Sample_Input)
     assert grid == [
         [2, 1, 9, 9, 9, 4, 3, 2, 1, 0],

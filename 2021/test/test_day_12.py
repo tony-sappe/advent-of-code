@@ -9,6 +9,7 @@ from day_12 import (
 
 
 def test_input_parser():
+    """Test the input parser output behavior"""
     network = parse_input(Sample_Input_1)
     assert network == [
         "start-A",

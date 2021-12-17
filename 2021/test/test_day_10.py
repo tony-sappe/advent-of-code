@@ -2,6 +2,7 @@ from day_10 import Sample_Input, parse_input, find_errors, complete_incomplete
 
 
 def test_input_parser():
+    """Test the input parser output behavior"""
     grid = parse_input(Sample_Input)
     assert grid == [
         "[({(<(())[]>[[{[]{<()<>>",

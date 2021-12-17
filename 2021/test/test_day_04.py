@@ -2,6 +2,7 @@ from day_04 import Sample_Input, parse_input, simulate_game, calculate_score
 
 
 def test_input_parser():
+    """Test the input parser output behavior"""
     (draws, boards) = parse_input(Sample_Input)
     assert len(boards) == 3
     assert draws == [7, 4, 9, 5, 11, 17, 23, 2, 0, 14, 21, 24, 10, 16, 13, 6, 15, 25, 12, 22, 18, 20, 8, 19, 3, 26, 1]

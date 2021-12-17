@@ -2,6 +2,7 @@ from day_07 import Sample_Input, parse_input, realignment, realignment_fuel
 
 
 def test_input_parser():
+    """Test the input parser output behavior"""
     lines = parse_input(Sample_Input)
     assert lines == [16, 1, 2, 0, 4, 2, 7, 1, 2, 14]
 

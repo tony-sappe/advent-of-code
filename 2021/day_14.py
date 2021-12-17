@@ -1,8 +1,6 @@
-from collections import Counter
-from datetime import datetime
-from more_itertools import pairwise
+from collections import Counter, defaultdict
 from pathlib import Path
-from typing import Iterable, Dict
+from typing import Dict, Tuple
 
 Sample_Input = """NNCB
 
@@ -25,34 +23,38 @@ CN -> C
 """
 
 
-def parse_input(input: str) -> Iterable[str]:
-    template, pairs = input.strip().split("\n\n")
-    return template, {pair[:2]: pair[-1] for pair in pairs.split("\n")}
+def parse_input(input: str) -> Tuple[Dict[str, int], Dict[str, str]]:
+    template, rules = input.strip().split("\n\n")
+    polymer_chain = Counter((x + y for x, y in zip(template, template[1:])))
+    insertion_rules = {pair[:2]: pair[-1] for pair in rules.split("\n")}
+    return template, polymer_chain, insertion_rules
 
 
-def polymer_chain_growth(template: str, pairs: Dict[str, str], steps: int) -> str:
+def polymer_chain_growth(polymer_chain: Dict[str, int], rules: Dict[str, str], steps: int) -> Dict[str, int]:
     for _ in range(steps):
-        new_chain = []
-        for chunk in pairwise(template):
-            new_chain.append(f"{chunk[0]}{pairs[''.join(chunk)]}")
-        new_chain.append(chunk[1])
-        template = "".join(new_chain)
+        new_polymer_chain = defaultdict(int)
+        for polymer in polymer_chain:
+            rule = rules[polymer]
+            new_polymer_chain[polymer[0] + rule] += polymer_chain[polymer]
+            new_polymer_chain[rule + polymer[1]] += polymer_chain[polymer]
 
-        if steps > 15 and _ % 5 == 0:
-            print(f"[{datetime.now()}] Completed Step #{_}")
+        polymer_chain = new_polymer_chain
 
-    return template
+    hc = defaultdict(int)
+    tc = defaultdict(int)
 
+    for p in polymer_chain.keys():
+        hc[p[0]] += polymer_chain[p]
+        tc[p[1]] += polymer_chain[p]
 
-def polymer_counts(chain: str) -> Dict[str, int]:
-    return Counter(chain)
+    return {x: max(hc.get(x, 0), tc.get(x, 0)) for x in set(hc) | set(tc)}
 
 
 if __name__ == "__main__":
     input_data = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
-    template, pairs = parse_input(input_data)
+    template, polymer_chain, insertion_rules = parse_input(input_data)
 
-    for i, steps in enumerate((10, 15, 20), start=1):
-        counts = polymer_counts(polymer_chain_growth(template, pairs, steps))
+    for i, steps in enumerate((10, 40), start=1):
+        counts = polymer_chain_growth(polymer_chain, insertion_rules, steps)
         quantity_range = max(counts.values()) - min(counts.values())
-        print(f"Step {i}: After {steps} steps, template `{template}` has a quantity range of {quantity_range:,}")
+        print(f"Step {i}: After {steps} steps, polymer_chain `{template}` has a quantity range of {quantity_range:,}")

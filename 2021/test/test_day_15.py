@@ -2,6 +2,7 @@ from day_15 import Sample_Input, parse_input, explore_cave, expanded_grid
 
 
 def test_input_parser():
+    """Test the input parser output behavior"""
     grid = parse_input(Sample_Input)
     assert grid == [
         [1, 1, 6, 3, 7, 5, 1, 7, 4, 2],

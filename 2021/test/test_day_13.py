@@ -2,6 +2,7 @@ from day_13 import Sample_Input, parse_input, place_dots, count_dots, step_1, fo
 
 
 def test_input_parser():
+    """Test the input parser output behavior"""
     points, folds = parse_input(Sample_Input)
     assert folds == [("y", 7), ("x", 5)]
     assert points == [
