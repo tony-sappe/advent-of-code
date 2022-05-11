@@ -1,7 +1,7 @@
 import re
 from collections import namedtuple
 from pathlib import Path
-from typing import Any, Iterable, List, Tuple
+from typing import Tuple
 
 Sample_Input = """target area: x=20..30, y=-10..-5
 """
