@@ -80,7 +80,7 @@ def deduce_crossed_wires(input_data):
 
 if __name__ == "__main__":
 
-    input_data = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    input_data = (Path.cwd().parent / "advent-of-code-data" / "2021" / f"{Path(__file__).stem}_input.txt").read_text()
 
     displays, outputs = parse_input(input_data)
     print(f"There are {count_easy_numbers(outputs)} characters of 1, 4, 7, or 8")

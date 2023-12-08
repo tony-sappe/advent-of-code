@@ -56,7 +56,7 @@ def scenic_score(grid: Iterable[Iterable[int]]) -> int:
 
 
 if __name__ == "__main__":
-    input_data = (Path.cwd() / "2022" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    input_data = (Path.cwd().parent / "advent-of-code-data" / "2022" / f"{Path(__file__).stem}_input.txt").read_text()
     # input_data = Sample_Input
     grid = parse_input(input_data)
     print(f"Step 1: Visible trees: {count_visible(grid)}")  # 1818

@@ -93,7 +93,7 @@ def complete_9001_operations(
 
 
 if __name__ == "__main__":
-    input_data = (Path.cwd() / "2022" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    input_data = (Path.cwd().parent / "advent-of-code-data" / "2022" / f"{Path(__file__).stem}_input.txt").read_text()
     stacks, instructions = parse_input(input_data)
     # input_data = Sample_Input
     # stacks, instructions = parse_sample_input(input_data)

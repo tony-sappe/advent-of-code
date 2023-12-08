@@ -80,7 +80,7 @@ def find_simultaneous_flash(grid: Iterable[Iterable[int]]) -> Tuple[List[List[in
 
 if __name__ == "__main__":
     steps = 100
-    input_data = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    input_data = (Path.cwd().parent / "advent-of-code-data" / "2021" / f"{Path(__file__).stem}_input.txt").read_text()
     grid = parse_input(input_data)
     grid, flashes = simulate_flashes(grid, steps)
     print(f"After {steps:,} steps, there were {flashes:,} flashes with an end state of:")

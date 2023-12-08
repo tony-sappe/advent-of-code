@@ -59,7 +59,7 @@ def o2_and_co2_diagnostics(report: Iterable[str]) -> Tuple[int, int]:
 
 
 if __name__ == "__main__":
-    input_data = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    input_data = (Path.cwd().parent / "advent-of-code-data" / "2021" / f"{Path(__file__).stem}_input.txt").read_text()
     report = parse_input(input_data)
 
     gamma_rate, epsilon_rate = gamma_and_epsilon_diagnostics(report)

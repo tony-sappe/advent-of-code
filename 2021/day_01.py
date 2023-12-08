@@ -49,7 +49,7 @@ def sonar_scan_triplets(sonar_sweep: Iterable[int]) -> int:
 
 
 if __name__ == "__main__":
-    input_data = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    input_data = (Path.cwd().parent / "advent-of-code-data" / "2021" / f"{Path(__file__).stem}_input.txt").read_text()
     sonar_sweep = parse_input(input_data)
     print(f"Step 1: Sonar report contained {sonar_scan(sonar_sweep):,} (single-measure) increases.")
     print(f"Step 2: Sonar report contained {sonar_scan_triplets(sonar_sweep):,} (three-measure) increases.")

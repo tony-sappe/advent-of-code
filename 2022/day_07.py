@@ -87,7 +87,7 @@ def find_best_dir(dir):
 
 
 if __name__ == "__main__":
-    input_data = (Path.cwd() / "2022" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    input_data = (Path.cwd().parent / "advent-of-code-data" / "2022" / f"{Path(__file__).stem}_input.txt").read_text()
     # input_data = Sample_Input
     file_system = parse_input(input_data)
     # print(file_system)

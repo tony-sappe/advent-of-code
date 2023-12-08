@@ -60,7 +60,7 @@ def find_hotspots(points):
 
 
 if __name__ == "__main__":
-    lines_input = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    lines_input = (Path.cwd().parent / "advent-of-code-data" / "2021" / f"{Path(__file__).stem}_input.txt").read_text()
     lines = parse_input(lines_input)
 
     line_subset = scrub_diagonal_lines(lines)

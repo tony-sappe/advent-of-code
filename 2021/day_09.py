@@ -72,7 +72,7 @@ def largest_basins_volume(basins: Iterable[Iterable[int]]) -> int:
 
 
 if __name__ == "__main__":
-    input_data = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    input_data = (Path.cwd().parent / "advent-of-code-data" / "2021" / f"{Path(__file__).stem}_input.txt").read_text()
     grid = parse_input(input_data)
 
     points = find_low_points(grid)

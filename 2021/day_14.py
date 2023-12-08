@@ -51,7 +51,7 @@ def polymer_chain_growth(polymer_chain: Dict[str, int], rules: Dict[str, str], s
 
 
 if __name__ == "__main__":
-    input_data = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    input_data = (Path.cwd().parent / "advent-of-code-data" / "2021" / f"{Path(__file__).stem}_input.txt").read_text()
     template, polymer_chain, insertion_rules = parse_input(input_data)
 
     for i, steps in enumerate((10, 40), start=1):

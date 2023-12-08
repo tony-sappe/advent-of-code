@@ -89,7 +89,7 @@ def display_grid(grid) -> None:
 
 
 if __name__ == "__main__":
-    input_data = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    input_data = (Path.cwd().parent / "advent-of-code-data" / "2021" / f"{Path(__file__).stem}_input.txt").read_text()
     points, folds = parse_input(input_data)
 
     print(f"Step 1: {step_1(points, folds)}")

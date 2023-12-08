@@ -57,7 +57,7 @@ def brute_force_simulate_one_day(fish: Iterable[int]) -> List[int]:
 
 if __name__ == "__main__":
 
-    fish_input = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    fish_input = (Path.cwd().parent / "advent-of-code-data" / "2021" / f"{Path(__file__).stem}_input.txt").read_text()
     initial_fish = parse_input(fish_input)
 
     print("========= NEW ============")

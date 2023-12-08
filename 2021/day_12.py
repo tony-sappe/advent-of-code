@@ -98,7 +98,7 @@ def create_cave_network(lines: Iterable[str]) -> Dict[str, List[str]]:
 
 
 if __name__ == "__main__":
-    input_data = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    input_data = (Path.cwd().parent / "advent-of-code-data" / "2021" / f"{Path(__file__).stem}_input.txt").read_text()
     lines = parse_input(input_data)
 
     paths = generate_valid_paths(lines)

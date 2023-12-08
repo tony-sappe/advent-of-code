@@ -33,7 +33,7 @@ def parse_input(input: str) -> List[int]:
 
 
 if __name__ == "__main__":
-    input_data = (Path.cwd() / "2022" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    input_data = (Path.cwd().parent / "advent-of-code-data" / "2022" / f"{Path(__file__).stem}_input.txt").read_text()
     # input_data = Sample_Input
     provisions = parse_input(input_data)
     print(f"Step 1: Most calories carried is {max(provisions):,}")

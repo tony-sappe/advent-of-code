@@ -37,7 +37,7 @@ def is_any_overlap(assignment: Tuple[Set[int], Set[int]]) -> bool:
 
 
 if __name__ == "__main__":
-    input_data = (Path.cwd() / "2022" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    input_data = (Path.cwd().parent / "advent-of-code-data" / "2022" / f"{Path(__file__).stem}_input.txt").read_text()
     # input_data = Sample_Input
     pairs = parse_input(input_data)
     print(f"Step 1: # of complete overlaps: {sum([is_complete_overlap(p) for p in pairs]):,}")  # 513

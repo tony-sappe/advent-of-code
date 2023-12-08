@@ -95,7 +95,7 @@ def operator_evaluation(parsed_packet) -> int:
 
 
 if __name__ == "__main__":
-    input_data = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    input_data = (Path.cwd().parent / "advent-of-code-data" / "2021" / f"{Path(__file__).stem}_input.txt").read_text()
     binary_string_list = parse_input(input_data)
     print(f"Step 1: Version Sum: {obtain_version_sum(parse_packet(list(binary_string_list)))}")
 

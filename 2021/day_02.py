@@ -45,7 +45,7 @@ def track_vector_movement(movements: List[Tuple[str, int]], use_aim=True) -> int
 
 
 if __name__ == "__main__":
-    input_data = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    input_data = (Path.cwd().parent / "advent-of-code-data" / "2021" / f"{Path(__file__).stem}_input.txt").read_text()
     movements = parse_input(input_data)
 
     print(f"Step 1: Submarine traveled {track_vector_movement(movements, False):,} on its course")

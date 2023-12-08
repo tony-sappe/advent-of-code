@@ -64,7 +64,7 @@ def parse_input(input: str) -> Tuple[List[int], List[List[int]]]:
 
 
 if __name__ == "__main__":
-    bingo_game_input = (Path.cwd() / "2021" / "data" / f"{Path(__file__).stem}_input.txt").read_text()
+    bingo_game_input = (Path.cwd().parent / "advent-of-code-data" / "2021" / f"{Path(__file__).stem}_input.txt").read_text()
     draws, boards = parse_input(bingo_game_input)
 
     winner, draw_count = simulate_game(boards, draws)
