@@ -1,5 +1,4 @@
 from pathlib import Path
-from icecream import ic
 from typing import Dict
 
 Sample_Input = """\
