@@ -8,11 +8,11 @@
 
 ## Puzzles through the years
 * 2023 \[[code](2023)\] \[[site](https://adventofcode.com/2023)\]
-    * Days Solved: 1 - 2
+    * Days Solved: 1 - 8
 * 2022 \[[code](2022)\] \[[site](https://adventofcode.com/2022)\]
     * Days Solved: 1 - 8
 * 2021 \[[code](2021)\] \[[site](https://adventofcode.com/2021)\]
-    * Days Solved: 1 - 21, 24, 25
+    * Days Solved: 1 - 21, 22(1), 24, 25(1)
 * 2020 \[[site](https://adventofcode.com/2020)\]
 * 2019 \[[site](https://adventofcode.com/2019)\]
 * 2018 \[[site](https://adventofcode.com/2018)\]
