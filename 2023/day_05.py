@@ -44,7 +44,7 @@ def parse_input(input: str) -> Tuple[List[int], List[Dict[int, Any]]]:
     lines = input.splitlines()
     _, seeds = lines[0].split(":")
     seeds = [int(s) for s in seeds.split(" ")[1:]]
-    ic(seeds)
+    # ic(seeds)
 
     lines.append("")
 
@@ -63,20 +63,19 @@ def parse_input(input: str) -> Tuple[List[int], List[Dict[int, Any]]]:
             values = []
         else:
             d, s, r = [int(x) for x in line.split(" ")]
-            values.append({"start": s, "end": s + r, "conv": d - s})
+            values.append({"start": s, "end": s + r, "trnsfrm": d - s})
 
     # ic(maps)
     return seeds, maps
 
 
 def map_seeds_to_location(seeds: List[int], maps: List[Dict[int, Any]]) -> int:
-    min_location = 1_000_000_000_000_000_000
-    while len(seeds):
-        seed = seeds.pop()
+    min_location = 1_000_000_000
+    for seed in seeds:
         for m in maps:
             for val in m["values"]:
                 if seed in range(val["start"], val["end"]):
-                    seed += val["conv"]
+                    seed += val["trnsfrm"]
                     break
 
         if seed < min_location:
@@ -85,33 +84,41 @@ def map_seeds_to_location(seeds: List[int], maps: List[Dict[int, Any]]) -> int:
     return min_location
 
 
-def expand_seeds(seeds: List[int]) -> List[int]:
-    new_seeds = set()
-    for i in range(0, len(seeds), 2):
-        new_seeds.update(range(seeds[i], seeds[i] + seeds[i + 1] + 1))
+class MapFunc:
+    def __init__(self, mapping: List[Dict[str, int]]):
+        self.tuples = [[m["trnsfrm"] + m["start"], m["start"], m["end"] - m["start"]] for m in mapping]
 
-    ic(len(new_seeds))
-    return list(new_seeds)
+    def apply_range(self, ranges: List[Tuple[int]]) -> List[int]:
+        answers = []
+        for dest, src, sz in self.tuples:
+            src_end = src + sz
+            next_range = []
+            while ranges:
+                (st, ed) = ranges.pop()
+                before = (st, min(ed, src))
+                inter = (max(st, src), min(src_end, ed))
+                after = (max(src_end, st), ed)
+                if before[1] > before[0]:
+                    next_range.append(before)
+                if inter[1] > inter[0]:
+                    answers.append((inter[0] - src + dest, inter[1] - src + dest))
+                if after[1] > after[0]:
+                    next_range.append(after)
+            ranges = next_range
+        return answers + ranges
 
 
 def map_seed_pairs_to_location(seeds: List[int], maps: List[Dict[int, Any]]) -> int:
-    min_location = 1_000_000_000_000_000_000
-    for i in range(0, len(seeds), 2):
-        print(f"Seed Range #{i//2}")
-        # seed_list = list(range(seeds[i], seeds[i] + seeds[i + 1] + 1))
-        # while len(seed_list):
-        #     seed = seed_list.pop()
-        for seed in range(seeds[i], seeds[i] + seeds[i + 1] + 1):
-            for m in maps:
-                for val in m["values"]:
-                    if seed in range(val["start"], val["end"]):
-                        seed += val["conv"]
-                        break
+    Fs = [MapFunc(s["values"]) for s in maps]
 
-            if seed < min_location:
-                min_location = seed
-
-    return min_location
+    locations = []
+    pairs = list(zip(seeds[::2], seeds[1::2]))  # even seeds, odd seeds and zip together
+    for st, sz in pairs:
+        interval = [(st, st + sz)]
+        for f in Fs:
+            interval = f.apply_range(interval)
+        locations.append(min(interval)[0])
+    return min(locations)
 
 
 if __name__ == "__main__":
@@ -119,6 +126,4 @@ if __name__ == "__main__":
     # input_data = Sample_Input
     seeds, maps = parse_input(input_data)
     print(f"Step 1: Lowest Location: {map_seeds_to_location(seeds, maps):,}")  # 662,197,086
-    seeds, maps = parse_input(input_data)
-    # print(f"Step 2: Lowest Location: {map_seeds_to_location(expand_seeds(seeds), maps):,}")
     print(f"Step 2: Lowest Location: {map_seed_pairs_to_location(seeds, maps):,}")  # 52,510,809
