@@ -1,5 +1,4 @@
 from pathlib import Path
-from icecream import ic
 from typing import List, Callable
 
 Sample_Input = """\
@@ -42,8 +41,8 @@ def is_nice_part1(string: str) -> bool:
 
 def contains_pair(string: str) -> int:
     for i in range(len(string) - 3):
-        sub = string[i: i + 2]
-        if sub in string[i + 2:]:
+        sub = string[i : i + 2]
+        if sub in string[i + 2 :]:
             return True
 
     return False

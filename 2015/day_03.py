@@ -1,6 +1,5 @@
 from pathlib import Path
-from icecream import ic
-from typing import List, Set, Tuple
+from typing import Set, Tuple
 
 Sample_Input = [">", "^>v<", "^v^v^v^v^v"]
 
@@ -17,7 +16,7 @@ def traverse(steps: str) -> Set[Tuple[int, int]]:
                 pos[0] += 1
             case "^":
                 pos[1] -= 1
-            case _ :
+            case _:
                 pos[1] += 1
 
         houses.add(tuple(pos))

@@ -1,7 +1,6 @@
 import hashlib
 from pathlib import Path
-from icecream import ic
-from typing import List, Set, Tuple
+
 
 Sample_Input = ["abcdef", "pqrstuv"]
 

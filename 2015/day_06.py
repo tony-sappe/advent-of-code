@@ -1,6 +1,6 @@
 import re
+
 from pathlib import Path
-from icecream import ic
 from typing import List, Tuple, Callable
 
 Sample_Input = """\
@@ -14,7 +14,11 @@ def parse_input(input: str) -> List[Tuple[str, List[int], List[int]]]:
     regex = re.compile(r"(.+) (\d+,\d+) through (\d+,\d+)")
     instructions = regex.findall(input)
     for i, ins in enumerate(instructions):
-        instructions[i] = (ins[0].replace("turn ", ""), [int(i) for i in ins[1].split(",")], [int(i) for i in ins[2].split(",")])
+        instructions[i] = (
+            ins[0].replace("turn ", ""),
+            [int(i) for i in ins[1].split(",")],
+            [int(i) for i in ins[2].split(",")],
+        )
 
     return instructions
 
