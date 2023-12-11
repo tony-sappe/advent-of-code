@@ -16,33 +16,17 @@ Sample_Input = """\
 #...#.....
 """
 
-Extra_Rows = []
-Extra_Cols = []
-
 
 def parse_input(input: str) -> List[List[str]]:
     return [[c for c in line] for line in input.splitlines()]
 
 
-def expand_image(image: List[List[str]], extra: int) -> List[List[str]]:
-    image = add_lines(image, extra)
+def find_emptiness(image: List[List[str]]) -> Tuple[List[int], List[int]]:
+    rows = expansion_grid(image)
     image = transpose(image)
-    image = add_lines(image, extra)
-    return transpose(image)
+    cols = expansion_grid(image)
 
-
-def add_lines(image: List[List[str]], extra: int) -> List[List[str]]:
-    adds = []
-    empty = []
-    for i, line in enumerate(image):
-        if set(line) == {"."}:
-            adds.append(i)
-            empty = line
-
-    for i, a in enumerate(adds):
-        for _ in range(extra):
-            image.insert(a + (i * extra), empty)
-    return image
+    return (rows, cols)
 
 
 def expansion_grid(image: List[List[str]]) -> List[Tuple[int, int]]:
@@ -68,6 +52,15 @@ def find_galaxies(image: List[List[str]]) -> List[Tuple[int, int]]:
     return galaxies
 
 
+def add_distance_to_galaxies(galaxies: List[Tuple[int, int]], extra: int, rows: List[int], cols: List[int]) -> List[Tuple[int, int]]:
+    for i, g in enumerate(galaxies):
+        r = [True for e in rows if e < g[0]].count(True)
+        c = [True for e in cols if e < g[1]].count(True)
+        galaxies[i] = (g[0] + r * extra, g[1] + c * extra)
+
+    return galaxies
+
+
 def calculate_total_distance(galaxies: List[Tuple[int, int]]) -> int:
     total = 0
     for c in combinations(galaxies, 2):
@@ -76,13 +69,11 @@ def calculate_total_distance(galaxies: List[Tuple[int, int]]) -> int:
     return total
 
 
-def add_distance_to_galaxies(galaxies: List[Tuple[int, int]], extra: int) -> List[Tuple[int, int]]:
-    for i, g in enumerate(galaxies):
-        rows = [True for e in Extra_Rows if e < g[0]].count(True)
-        cols = [True for e in Extra_Cols if e < g[1]].count(True)
-        galaxies[i] = (g[0] + rows * extra, g[1] + cols * extra)
-
-    return galaxies
+def pipeline(image: List[List[str]], expansion: int) -> int:
+    rows, cols = find_emptiness(image)
+    g = find_galaxies(image)
+    g = add_distance_to_galaxies(g, expansion - 1, rows, cols)
+    return calculate_total_distance(g)
 
 
 if __name__ == "__main__":
@@ -90,18 +81,5 @@ if __name__ == "__main__":
     # input_data = Sample_Input
     image = parse_input(input_data)
     # print("\n".join(["".join(line) for line in image]))
-    image = expand_image(image, 1)
-    # print("\n".join(["".join(line) for line in image]))
-    g = find_galaxies(image)
-    print(f"Step 1: Total distance {calculate_total_distance(g)}")  # 9329143
-
-    image = parse_input(input_data)
-    Extra_Rows = expansion_grid(image)
-    image = transpose(image)
-    Extra_Cols = expansion_grid(image)
-    image = transpose(image)
-    g = find_galaxies(image)
-    ic(Extra_Rows)
-    ic(Extra_Cols)
-    g = add_distance_to_galaxies(g, 1000000 - 1)
-    print(f"Step 2: Total distance {calculate_total_distance(g)}")  # 710674907809
+    print(f"Step 1: Total distance {pipeline(image, 2)}")  # 9329143
+    print(f"Step 2: Total distance {pipeline(image, 1000000)}")  # 710674907809

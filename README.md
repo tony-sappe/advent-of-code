@@ -15,7 +15,7 @@
 
 ## Puzzles through the years
 * 2023 \[[code](2023)\] \[[site](https://adventofcode.com/2023)\]
-    * Days Solved: 01 - 13
+    * Days Solved: 01 - 11
 * 2022 \[[code](2022)\] \[[site](https://adventofcode.com/2022)\]
     * Days Solved: 01 - 08
 * 2021 \[[code](2021)\] \[[site](https://adventofcode.com/2021)\]
@@ -26,7 +26,7 @@
 * 2017 \[[site](https://adventofcode.com/2017)\]
 * 2016 \[[site](https://adventofcode.com/2016)\]
 * 2015 \[[code](2015)\] \[[site](https://adventofcode.com/2015)\]
-    * Days Solved: 01 - 09
+    * Days Solved: 01 - 16
 
 
 # Legal
