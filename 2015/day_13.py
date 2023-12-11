@@ -3,7 +3,6 @@ import re
 from pathlib import Path
 from typing import Dict
 from collections import defaultdict
-from icecream import ic
 from copy import deepcopy
 
 Sample_Input = """\

@@ -3,7 +3,6 @@ import operator
 
 from pathlib import Path
 from typing import Dict, Optional
-from icecream import ic
 
 
 MATCH = {

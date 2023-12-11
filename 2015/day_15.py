@@ -2,7 +2,6 @@ import re
 
 from pathlib import Path
 from typing import Dict
-from icecream import ic
 from itertools import product
 
 Sample_Input = """\
